@@ -1,0 +1,147 @@
+{
+	"priklady": [{
+		"zadanie": "Štyria cestujúci nastupujú na vlak, ktorý ma päť vozňov? Aká je pravdepodobnosť toho, že aspoň jeden nastúpi do štvrtého alebo do piateho vozňa?",
+		"udalosti": [
+			{"nazov": "nastúpi do ľubovolného vozňa", "oznacenie": "A", "mnozina": [1, 2, 3, 4, 5]},
+			{"nazov": "nastúpi do 1. vozňa", "oznacenie": "D", "mnozina": [1]},
+			{"nazov": "nastúpi do 2. vozňa", "oznacenie": "E", "mnozina": [2]},
+			{"nazov": "nastúpi do 3. vozňa", "oznacenie": "F", "mnozina": [3]},
+			{"nazov": "nastúpi do 4. vozňa", "oznacenie": "G", "mnozina": [4]},
+			{"nazov": "nastúpi do 5. vozňa", "oznacenie": "H", "mnozina": [5]}
+		],
+		"kombinatorika": [
+			{"nazov": "počet rozmiestnení 5 vozňov medzi 4 ľudí (vozňe sa môžu opakovať)", "typ": "vo", "n": 5, "k": [4]},
+			{"nazov": "počet rozmiestnení 4 vozňov medzi 4 ľudí (vozňe sa môžu opakovať)", "typ": "vo", "n": 4, "k": [4]}
+		],
+		"vysledok": {
+			"citatel": 544,
+			"menovatel": 625
+		}
+	}, {
+		"zadanie": "Z dvanástich predajní mäsa v meste v štyroch predražujú tovar. Náhodne vyberieme na kontrolu 2 predajne mäsa. Aká je pravdepodobnosť toho, že aspoň v jednej predražujú tovar?",
+		"udalosti": [],
+		"kombinatorika": [
+			{"nazov": "počet výberov 2 predajní z 12 predajní", "typ": "kn", "n": 12, "k": [2]},
+			{"nazov": "počet výberov 2 predajní z 8 predajní", "typ": "kn", "n": 8, "k": [2]},
+			{"nazov": "počet výberov 2 predajní z 4 predajní", "typ": "kn", "n": 4, "k": [2]},
+			{"nazov": "počet výberov 1 predajne z 12 predajní", "typ": "kn", "n": 12, "k": [1]},
+			{"nazov": "počet výberov 1 predajne z 8 predajní", "typ": "kn", "n": 8, "k": [1]},
+			{"nazov": "počet výberov 1 predajne z 4 predajní", "typ": "kn", "n": 4, "k": [1]}
+		],
+		"vysledok": {
+			"citatel": 19,
+			"menovatel": 33
+		}
+	}, {
+		"zadanie": "Aká je pravdepodobnosť toho, že pri dvojnásobnom hode hracej kocky padne šesťka aspoň raz?",
+		"udalosti": [
+			{"nazov": "padne ľubovolné číslo", "oznacenie": "A", "mnozina": [1, 2, 3, 4, 5, 6]},
+			{"nazov": "padne číslo jedna", "oznacenie": "D", "mnozina": [1]},
+			{"nazov": "padne číslo dva", "oznacenie": "E", "mnozina": [2]},
+			{"nazov": "padne číslo tri", "oznacenie": "F", "mnozina": [3]},
+			{"nazov": "padne číslo štyri", "oznacenie": "G", "mnozina": [4]},
+			{"nazov": "padne číslo päť", "oznacenie": "H", "mnozina": [5]},
+			{"nazov": "padne číslo šesť", "oznacenie": "I", "mnozina": [6]}
+		],
+		"kombinatorika": [
+			{"nazov": "počet výberov 1 hodu z 2 hodov", "typ": "kn", "n": 2, "k": [1]},
+			{"nazov": "počet výberov 2 hodov z 2 hodov", "typ": "kn", "n": 2, "k": [2]}
+		],
+		"vysledok": {
+			"citatel": 11,
+			"menovatel": 36
+		}
+	}, {
+		"zadanie": "Medzi 10 dobrých žiaroviek bolo omylom priemiešených 5 chybných. Náhodne vyberieme 3 z tých 15 žiaroviek. Aká je pravdepodobnosť toho, že aspoň jedna je chybná?",
+		"udalosti": [],
+		"kombinatorika": [
+			{"nazov": "počet výberov 3 žiaroviek z 15 žiaroviek", "typ": "kn", "n": 15, "k": [3]},
+			{"nazov": "počet výberov 3 žiaroviek z 10 žiaroviek", "typ": "kn", "n": 10, "k": [3]},
+			{"nazov": "počet výberov 3 žiaroviek z 5 žiaroviek", "typ": "kn", "n": 5, "k": [3]}
+		],
+		"vysledok": {
+			"citatel": 67,
+			"menovatel": 91
+		}
+	}, {
+		"zadanie": "Do výťahu v osemposchodovej budove vstupujú 3 osoby. Aká je pravdepodobnosť toho, že aspoň dvaja vystúpia 4. poschodí?",
+		"udalosti": [
+			{"nazov": "vystúpi na ľubovoľnom poschodí", "oznacenie": "A", "mnozina": [1, 2, 3, 4, 5, 6, 7, 8]},
+			{"nazov": "vystúpi na 1. poschodí", "oznacenie": "D", "mnozina": [1]},
+			{"nazov": "vystúpi na 2. poschodí", "oznacenie": "E", "mnozina": [2]},
+			{"nazov": "vystúpi na 3. poschodí", "oznacenie": "F", "mnozina": [3]},
+			{"nazov": "vystúpi na 4. poschodí", "oznacenie": "G", "mnozina": [4]},
+			{"nazov": "vystúpi na 5. poschodí", "oznacenie": "H", "mnozina": [5]},
+			{"nazov": "vystúpi na 6. poschodí", "oznacenie": "I", "mnozina": [6]},
+			{"nazov": "vystúpi na 7. poschodí", "oznacenie": "J", "mnozina": [7]},
+			{"nazov": "vystúpi na 8. poschodí", "oznacenie": "K", "mnozina": [8]}
+		],
+		"kombinatorika": [
+			{"nazov": "počet výberov 1 osoby z 3 ľudí", "typ": "kn", "n": 3, "k": [1]},
+			{"nazov": "počet výberov 2 osôb z 3 ľudí", "typ": "kn", "n": 3, "k": [2]},
+			{"nazov": "počet výberov 3 osôb z 3 ľudí", "typ": "kn", "n": 3, "k": [3]},
+			{"nazov": "počet rozmiestnení 8 poschodí medzi 3 ľudí (poschodia sa môžu opakovať)", "typ": "vo", "n": 8, "k": [3]},
+			{"nazov": "počet rozmiestnení 7 poschodí medzi 3 ľudí (poschodia sa môžu opakovať)", "typ": "vo", "n": 7, "k": [3]},
+			{"nazov": "počet rozmiestnení 8 poschodí medzi 2 ľudí (poschodia sa môžu opakovať)", "typ": "vo", "n": 8, "k": [2]},
+			{"nazov": "počet rozmiestnení 7 poschodí medzi 1 človeka (poschodia sa môžu opakovať)", "typ": "vo", "n": 8, "k": [1]}
+		],
+		"vysledok": {
+			"citatel": 9,
+			"menovatel": 512
+		}
+	}, {
+		"zadanie": "Do okresného mesta v okrese, v ktorom je 10 obcí sa schádzajú traja branci. Aké je pravdepodobnosť toho, že aspoň dvaja budú z tej istej obce?",
+		"udalosti": [],
+		"kombinatorika": [
+			{"nazov": "počet rozmiestnení 10 obcí medzi 3 brancov (obce sa nemôžu opakovať)", "typ": "vn", "n": 10, "k": [3]},
+			{"nazov": "počet rozmiestnení 10 obcí medzi 2 brancov (obce sa nemôžu opakovať)", "typ": "vn", "n": 10, "k": [2]},
+			{"nazov": "počet rozmiestnení 10 obcí medzi 1 branca (obce sa nemôžu opakovať)", "typ": "vn", "n": 10, "k": [1]},
+			{"nazov": "počet rozmiestnení 10 obcí medzi 3 brancov (obce sa môžu opakovať)", "typ": "vo", "n": 10, "k": [3]},
+			{"nazov": "počet rozmiestnení 10 obcí medzi 2 brancov (obce sa môžu opakovať)", "typ": "vo", "n": 10, "k": [2]},
+			{"nazov": "počet rozmiestnení 10 obcí medzi 1 branca (obce sa môžu opakovať)", "typ": "vo", "n": 10, "k": [1]}			
+		],
+		"vysledok": {
+			"citatel": 18,
+			"menovatel": 25
+		}
+	}, {
+		"zadanie": "Aká je pravdepodobnosť toho, že pri trojnásobnom hode hracej kocky padne šesťka najviac dvakrát?",
+		"udalosti": [
+			{"nazov": "padne ľubovolné číslo", "oznacenie": "A", "mnozina": [1, 2, 3, 4, 5, 6]},
+			{"nazov": "padne číslo jedna", "oznacenie": "D", "mnozina": [1]},
+			{"nazov": "padne číslo dva", "oznacenie": "E", "mnozina": [2]},
+			{"nazov": "padne číslo tri", "oznacenie": "F", "mnozina": [3]},
+			{"nazov": "padne číslo štyri", "oznacenie": "G", "mnozina": [4]},
+			{"nazov": "padne číslo päť", "oznacenie": "H", "mnozina": [5]},
+			{"nazov": "padne číslo šesť", "oznacenie": "I", "mnozina": [6]}
+		],
+		"kombinatorika": [
+			{"nazov": "počet výberov 1 hodu z 3 hodov", "typ": "kn", "n": 3, "k": [1]},
+			{"nazov": "počet výberov 2 hodov z 3 hodov", "typ": "kn", "n": 3, "k": [2]},
+			{"nazov": "počet výberov 3 hodov z 3 hodov", "typ": "kn", "n": 3, "k": [3]},
+			{"nazov": "počet rozmiestnení 6 čísel medzi 3 hody (čísla sa môžu opakovať)", "typ": "vo", "n": 6, "k": [3]},
+			{"nazov": "počet rozmiestnení 1 čísla medzi 3 hody (čísla sa môžu opakovať)", "typ": "vo", "n": 7, "k": [3]}
+		],
+		"vysledok": {
+			"citatel": 215,
+			"menovatel": 216
+		}
+	}, {
+		"zadanie": "Do výťahu v desaťposhodovej budove vstupujú štyri osoby. Aká je pravdepodobnosť toho, že každý výstúpi na inom poschodí? (Predpokladáme pritom, že vystupujú nezávisle na sebe a pravdepodobnosť vystúpenia na ktoromkoľvek poschodí je rovnaká.)",
+		"udalosti": [],
+		"kombinatorika": [
+			{"nazov": "počet rozmiestnení 10 poschodí medzi 4 ľudí (poschodia sa nemôžu opakovať)", "typ": "vn", "n": 10, "k": [4]},
+			{"nazov": "počet rozmiestnení 10 poschodí medzi 3 ľudí (poschodia sa nemôžu opakovať)", "typ": "vn", "n": 10, "k": [3]},
+			{"nazov": "počet rozmiestnení 10 poschodí medzi 2 ľudí (poschodia sa nemôžu opakovať)", "typ": "vn", "n": 10, "k": [2]},
+			{"nazov": "počet rozmiestnení 10 poschodí medzi 1 človeka (poschodia sa nemôžu opakovať)", "typ": "vn", "n": 10, "k": [1]},
+			{"nazov": "počet rozmiestnení 10 poschodí medzi 4 ľudí (poschodia sa môžu opakovať)", "typ": "vo", "n": 10, "k": [4]},
+			{"nazov": "počet rozmiestnení 10 poschodí medzi 3 ľudí (poschodia sa môžu opakovať)", "typ": "vo", "n": 10, "k": [3]},
+			{"nazov": "počet rozmiestnení 10 poschodí medzi 2 ľudí (poschodia sa môžu opakovať)", "typ": "vo", "n": 10, "k": [2]},
+			{"nazov": "počet rozmiestnení 10 poschodí medzi 1 človeka (poschodia sa môžu opakovať)", "typ": "vo", "n": 10, "k": [1]}			
+		],
+		"vysledok": {
+			"citatel": 63,
+			"menovatel": 125
+		}
+	}]
+}

@@ -1,0 +1,660 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="readable.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
+    <meta name="google-signin-scope" content="profile email">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content="343413004275-mv8l0atmp7s1j4ufroq4clh37g08bjvd.apps.googleusercontent.com">
+    <script type="text/javascript" src="js/jquery-2.1.4.js"></script>
+    <script type="text/javascript" src="js/teoria.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <title>O pravdepodobnosti</title>
+</head>
+
+<body id="uvodne_body">
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" rel="home" href="#" title="Buy Sell Rent Everyting">
+        <img style="max-width:35px;" src="img/logo.png">
+      </a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a href="index.html"><font size="5"><strong>O pravdepodobnosti</strong></font></a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Teória<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="teoria.html">Pravdepodobnosť</a></li>
+            <li><a href="teoria_kom.html">Dodatok - kombinátorika</a></li>
+          </ul>
+        </li>
+        <li><a href="priklady.html">Príklady</a></li>
+        <li><a href="triedy.html">Triedy</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><div id="google_profil" style="display: none;"></div></li>
+        <li><div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark" style="display: inline;"></div></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div id="page1" class="col-lg-8 col-lg-offset-2" style="display:inline;">
+	<blockquote>
+	<p>Pojem pravdepodobnosť je nám známy už z bežného života. Ak sme o niečom pevne presvedčení, hovoríme, že je to isté na 100%. Ak však o niečom prehlásime, že máme 95% istotu, pripúšťame, že zo 100 prípadov asi v piatich dané tvrdenie neplatí.
+	<p>V matematike vyjadrujeme pravdepodobnosť nejakej udalosti nie v percentách, ale odpovedajúcim číslom z intervalu  &lt;0, 1&gt;. Teda nehovoríme o pravdepodobnosti 57%, 13%, 20% a pod. ale o 0.57, 0.13, 0.2 a pod. <br>
+	Spočiatku budeme pracovať s tým azda najjednoduchším modelom: budeme predpokladať, že experiment má konečný počet možných výsledkov, ktoré sú rovnako pravdepodobné.
+	<br>
+	<p><strong>Definícia 1.1.</strong><br> 
+	<i>Nech Ω = {w<sub>1</sub>, w<sub>2</sub>, ....w<sub>n</sub>} je neprázdna množina. Podmnožiny Ω budeme nazývať tiež udalosťami; špeciálne &empty; sa nazýva <strong>nemožná udalosť</strong>, Ω sa nazýva <strong>istá udalosť</strong>. Pravdepodobnosťou P(A) udalosti A rozumieme číslo<br>
+	<center>P(A) = <sup>m</sup>&frasl;<sub>n</sub> ,<br></center>
+	kde m je počet prvkov množiny A (počet prvkov prázdnej množiny &empty; je 0) a n je počet prvkov množiny Ω.</i>
+	</blockquote>
+	<button class="btn btn-primary disabled" style="float:left; margin-bottom: 30px;">Začiatok</button>
+	<button class="btn btn-primary" style="float:right; margin-bottom: 30px;" onclick="change_page(1);">Pokračovať</button>
+</div>
+
+<div id="page2" class="col-lg-8 col-lg-offset-2" style="display:none;">
+  <blockquote>
+    <p><strong>Príklad 1.1.</strong><br>
+    Vykonajme hod pravidelnou kockou, na stenách ktorej je postupne jedna, dve tri, ..., šesť bodiek. Aká je pravdepodobnosť udalosti, že na padnutej stene bude párny počet bodiek?
+  </blockquote>
+  <center><div id="page2_1" style="display:inline;"> 
+    <font size="4"><p>Ako prvé si určime množinu Ω, čiže množinu všetkých možných výsledkov pokusu.<br>
+      (naklikaj si všetky rôzne možnosti, ktoré môžu padnúť na kocke)<br>
+      <table id="table_cube">
+        <tr>
+          <td>
+            <img id="spin1_arrow" onclick="spin(1)" src="img/spin1_arrow.png"/>
+          </td>
+          <td>
+            <img id="cube" src="img/cube123.png"/>
+          </td>
+          <td>
+            <img id="spin2_arrow" onclick="spin(2)" src="img/spin2_arrow.png"/>
+          </td>
+        </tr>
+      </table>
+      <button class="btn btn-primary" id="add_button" onclick="add_number()">pridaj</button>
+    </font>
+  </div><center>
+  <font size="4">
+    <div class="col-lg-12 col-md-12">
+    <center>
+      <div style="float:left; margin-left:240px;">Ω = { </div>
+      <table id="table_cubes" style="float:left;">
+        <tr id="tr_numbers">
+        </tr>
+        <tr id="tr_buttons">
+        </tr>
+      </table>
+      <div style="float:left;"> }</div>
+    </div>
+    </center>
+    <br><br>
+  </font>
+  <h5 id="page2_chyba" class="col-lg-12 col-md-12" style="display:none;"><center>Vo výbere nastala chyba. Máš vybrať všetky rôzne hody.</center></h5>
+  <center><div id="page2_2" style="display:none;"> 
+    <font size="4">
+      <div class="col-lg-12">
+        <br><p>Ďalej si určime množinu A, ktorá zodpovedá udalosti, že na hracej kocke padne párne číslo.<br>
+        <table id="table_cube2">
+          <tr>
+            <td>
+              <img id="spin1_arrow2" onclick="spin2(1)" src="img/spin1_arrow.png"/>
+            </td>
+            <td>
+              <img id="cube2" src="img/cube123.png"/>
+            </td>
+            <td>
+              <img id="spin2_arrow2" onclick="spin2(2)" src="img/spin2_arrow.png"/>
+            </td>
+          </tr>
+        </table>
+        <button class="btn btn-primary" id="add_button2" onclick="add_number2()">pridaj</button>
+      </div>
+    </font>
+  </div></center>
+  <div class="col-lg-12"><br>
+  </div>
+  <center><div id="page2_3" style="display:none;">
+    <font size="4">
+      <div class="col-lg-12 col-md-12">
+      <center>
+        <div style="float:left; margin-left:320px;">A = { </div>
+        <table id="table_cubes2" style="float:left;">
+          <tr id="tr_numbers2">
+          </tr>
+          <tr id="tr_buttons2">
+          </tr>
+        </table>
+        <div style="float:left;"> }</div>
+      </center>
+      </div>
+      <br><br>
+      <br>
+      <h5 id="page2_chyba2" class="col-lg-12 col-md-12" style="display:none;"><center>Vo výbere nastala chyba. Máš vybrať všetky rôzne parne hody.</center></h5>
+    </font>
+  </div></center>
+  <div id="page2_4" style="display:none;">
+    <div class="col-lg-12">
+    <br>
+      <font size="4">
+        <p style="float:left;"><strong>Podľa definície platí:</strong></p><br><br>
+      </font>
+    </div>
+    <div class="col-lg-12">
+      <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2" style="padding:10px; padding-top:20px; padding-bottom:20px; background-color:white; border:4px solid #4582ec">
+      <font size="5">
+        P (A) = <sup>|A|</sup>&frasl;<sub>|Ω|</sub> = <sup>3</sup>&frasl;<sub>6</sub> = <sup>1</sup>&frasl;<sub>2</sub>
+      </font>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-12">
+  	<br>
+  	<br>
+  	<button class="btn btn-primary" style="float:left; margin-bottom: 30px;" onclick="change_page_back(2);">Späť</button>
+    <button class="btn btn-primary" style="float:right; margin-bottom: 30px;" onclick="change_page(2);">Pokračovať</button>
+  </div>
+</div>
+
+<div id="page3" class="col-lg-8 col-lg-offset-2" style="display:none;">
+  <blockquote>
+    <p><strong>Príklad 1.2.</strong><br>
+    V hromade hracích kariet je 32 dobre zamiešaných kariet. Vyberieme 3. Aká je pravdepodobnosť toho, že všetky tri budú červené? (každá farba sa vyskytuje v hromade práve osemkrát)
+  </blockquote>
+  <center><div id="page3_1" style="display:inline;"> 
+    <font size="4">
+      <p>Množinu Ω si určíme ako: <strong>všetky rôzne trojice kariet, vybrané spomedzi 32 kariet</strong>.
+      <p>Ako je známe, trojprvkových kombinácií z 32 prvkov možno vytvoriť celkom:
+      <br>
+      <br>
+      <img src="img/page3_omega.png" height="40px">
+      <br>
+      <p>Z toho vyplýva, že množina všetkých udalostí je:
+      <p><strong>Ω = {w<sub>1</sub>, w<sub>2</sub>, ..., w<sub>4 960</sub>}</strong>, 
+      <p>kde w<sub>i</sub> je ľubovoľná trojica kariet vybraná z hromady 32 kariet
+      <br>
+      <br>
+    </font>
+  <button class="btn btn-primary" style="float:left; margin-bottom: 30px;" onclick="change_page_back(3);">Späť</button>
+  <button class="btn btn-primary" style="float:right; margin-bottom: 30px;" onclick="change_subpage('page3_1','page3_2');">Pokračovať</button>
+  </div></center>
+  <center><div id="page3_2" style="display:none;"> 
+    <font size="4">
+      <p><strong>Ω = {w<sub>1</sub>, w<sub>2</sub>, ..., w<sub>4 960</sub>}</strong>
+      <br>
+      <p>Rovnakým spôsobom určíme množinu A, ktorá označuje udalosť kedy vyberáme ľubovoľné 3, práve červené karty z 32 kariet. (zo zadania vieme, že v balíčku je 8 červených kariet) 
+      <br>
+      <p>Čiže počet prvkov množiny A bude: (označ možnosť, ktorá je podľa teba správna)
+      <br>
+      <br>
+      <input id="odpoved1" type="image" src="img/page3_b1.png" onclick="page3_vyber(1);" height="60px" style="width:auto; margin:10px; padding:10px; background-color:white; border:2px solid #4582ec"/>
+      <input id="odpoved2" type="image" src="img/page3_b2.png" onclick="page3_vyber(2)" height="60px" style="width:auto; margin:10px; padding:10px; background-color:white; border:2px solid #4582ec"/>
+      <input id="odpoved3" type="image" src="img/page3_b3.png" onclick="page3_vyber(3)" height="60px" style="width:auto; margin:10px; padding:10px; background-color:white; border:2px solid #4582ec"/>
+      <br>
+      <br>
+    </font>
+  <button class="btn btn-primary" style="float:left; margin-bottom: 30px;" onclick="change_subpage('page3_2','page3_1');">Späť</button>
+  <button class="btn btn-primary" style="float:right; margin-bottom: 30px;" onclick="change_subpage('page3_2','page3_3');">Pokračovať</button>
+  </div></center>
+  <center><div id="page3_3" style="display:none;"> 
+    <font size="4">
+      <p>Keď už máme definovánú množinu Ω a aj množinu A, vieme vypočítať výsledok príkladu.</p>
+      <p><strong>Ω = {w<sub>1</sub>, w<sub>2</sub>, ..., w<sub>4 960</sub>}</strong>
+      <p>kde w<sub>i</sub> je ľubovolná trojica kariet vybratá z hromady 32 kariet
+      <br>
+      <p><strong>A = {u<sub>1</sub>, u<sub>2</sub>, ..., u<sub>56</sub>}</strong>
+      <p>kde u<sub>i</sub> je ľubovolná trojica červených kariet vybratá z hromady 32 kariet
+      <br>
+    </font>
+     <div class="col-lg-12">
+      <font size="4">
+        <p style="float:left;"><strong>Potom z definície platí:</strong></p><br><br>
+      </font>
+    </div>
+    <div class="col-lg-12">
+      <div class="col-lg-8 col-lg-offset-2" style="padding:10px; padding-top:20px; padding-bottom:20px; background-color:white; border:4px solid #4582ec">
+      <font size="5">
+        P (A) = <sup>|A|</sup>&frasl;<sub>|Ω|</sub> = <sup>56</sup>&frasl;<sub>4 960</sub> = 0,011
+      </font>
+      </div>
+    </div>
+    <div class="col-lg-12">
+    <br>
+    <br>
+    <button class="btn btn-primary" style="float:left; margin-bottom: 30px;" onclick="change_subpage('page3_3','page3_2');">Späť</button>
+    <button class="btn btn-primary" style="float:right; margin-bottom: 30px;" onclick="change_page(3);">Pokračovať</button>
+    </div>
+  </div></center>
+</div>
+
+<div id="page4" class="col-lg-8 col-lg-offset-2" style="display:none;">
+  <blockquote>
+    <p><strong>Príklad 1.3.</strong><br>
+    Do stanice vchádza vlak s dvanástimi vozňami. Nastupuje doňho 7 cestujúcich. Aká je pravdepodobnosť toho, že všetci siedmi pocestujú v rôznych vagónoch? (t. j. v žiadnom vagóne nepocestuje viac ako jeden z nich)
+  </blockquote>
+  <center>
+	 <font size="4">
+	   <p>Rozmiestnite všetkých cestujúcich tak, aby všetci cestujúci sedeli v rôznych vagónoch.
+	   <table>
+	   	 <tr>
+	   	   <td style="padding: 0px 5px;"><center>možnosti<br>1. cestuj.</center></td><td></td>
+	   	   <td style="padding: 0px 5px;"><center>možnosti<br>2. cestuj.</center></td><td></td>
+	   	   <td style="padding: 0px 5px;"><center>možnosti<br>3. cestuj.</center></td><td></td>
+	   	   <td style="padding: 0px 5px;"><center>možnosti<br>4. cestuj.</center></td><td></td>
+	   	   <td style="padding: 0px 5px;"><center>možnosti<br>5. cestuj.</center></td><td></td>
+	   	   <td style="padding: 0px 5px;"><center>možnosti<br>6. cestuj.</center></td><td></td>
+	   	   <td style="padding: 0px 5px;"><center>možnosti<br>7. cestuj.</center></td>
+	   	 </tr>
+	   	 <tr>
+	   	   <td style="padding: 0px 5px;"><center><input type="text" id="cestujuci1" maxlength="2" size="2" readonly="readonly"></center></td><td>*</td>
+	   	   <td style="padding: 0px 5px;"><center><input type="text" id="cestujuci2" maxlength="2" size="2" readonly="readonly"></center></td><td>*</td>
+	   	   <td style="padding: 0px 5px;"><center><input type="text" id="cestujuci3" maxlength="2" size="2" readonly="readonly"></center></td><td>*</td>
+	   	   <td style="padding: 0px 5px;"><center><input type="text" id="cestujuci4" onchange="page4_skontroluj();" maxlength="2" size="2"></center></td><td>*</td>
+	   	   <td style="padding: 0px 5px;"><center><input type="text" id="cestujuci5" onchange="page4_skontroluj();" maxlength="2" size="2"></center></td><td>*</td>
+	   	   <td style="padding: 0px 5px;"><center><input type="text" id="cestujuci6" onchange="page4_skontroluj();" maxlength="2" size="2"></center></td><td>*</td>
+	   	   <td style="padding: 0px 5px;"><center><input type="text" id="cestujuci7" onchange="page4_skontroluj();" maxlength="2" size="2"></center></td>
+	   	 </tr>
+	   </table>
+	   <br>
+	   <div id="page4_1">
+		   <p>Všetkých 12 vozňov je prázdnych a prvý cestujúci chce nastúpiť do vlaku.<br>
+		   Do koľkých rôznych vagónov môže nastúpiť aby neporušil podmienku, že všetci cestujúci musia sedieť v rôznych vagónoch: 
+		   <select id="page4_vyber1" onchange="vyber1_change();">
+			  <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option>
+		   </select>
+	   </div>
+	   <div id="page4_2" style="display:none;">
+		   <p>Ostalo nám 11 voľných vozňov a jeden obsadený. Druhý cestujúci chce nastúpiť do vlaku.<br>
+		   Do koľkých rôznych vagónov môže nastúpiť aby neporušil podmienku, že všetci cestujúci musia sedieť v rôznych vagónoch: 
+		   <select id="page4_vyber2" onchange="vyber2_change();">
+			  <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option>
+		   </select>
+	   </div>
+	   <div id="page4_3" style="display:none;">
+		   <p>Ostalo nám už len 10 voľných vozňov a dva obsadené. Tretí cestujúci chce nastúpiť do vlaku.<br>
+		   Do koľkých rôznych vagónov môže nastúpiť aby neporušil podmienku, že všetci cestujúci musia sedieť v rôznych vagónoch: 
+		   <select id="page4_vyber3" onchange="vyber3_change();">
+			  <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option>
+		   </select>
+	   </div>
+	   <div id="page4_4" style="display:none;">
+		   <p>Teraz skús sám dopísať možnosti pre ostatných cestujúcich.
+	   </div>
+	   <div id="page4_5" style="display:none;">
+		   <p>Správne, čiže A je počet všetkých rôznych rozmiestnení, kde každé dve osoby sú vždy v dvoch rôznych vagónoch.<br>
+		   <strong>|A| = 12 * 11 * 10 * 9 * 8 * 7 * 6</strong>
+		   <p>Rovnakým spôsobom sa dopracujeme k množine Ω, ktorá zahŕňa všetky rôzne rozmiestnenia kde dve osoby môžu byť v dvoch rovnakých vagónoch.<br>
+		   <strong>|Ω| = 12 * 12 * 12 * 12 * 12 * 12 * 12</strong>
+		   <div class="col-lg-12">
+		      <div class="col-lg-12" style="padding:10px; padding-top:20px; padding-bottom:20px; background-color:white; border:4px solid #4582ec">
+		      <font size="5">
+		        P (A) = <sup>|A|</sup>&frasl;<sub>|Ω|</sub> = <sup>12 * 11 * 10 * 9 * 8 * 7 * 6</sup>&frasl;<sub>12 * 12 * 12 * 12 * 12 * 12 * 12</sub> = 0,1114
+		      </font>
+		      </div>
+		   </div>
+	   </div>
+	 </font>
+  </center>
+  <div class="col-lg-12">
+       <br>
+       <button class="btn btn-primary" style="float:left; margin-bottom: 30px;" onclick="change_page_back(4);">Späť</button>
+       <button class="btn btn-primary" style="float:right; margin-bottom: 30px;" onclick="change_page(4);">Pokračovať</button>
+     </div>
+</div>
+
+<div id="page5" class="col-lg-8 col-lg-offset-2" style="display:none;">
+  <blockquote>
+    <p><strong>Príklad 1.4.</strong><br>
+    Predpokladajme, že v sérií 100 výrobkov je 5 chybných. Vyberme spomedzi tých 100 výrobkov náhodne 10. Aká je pravdepodobnosť toho, že medzi týmito desiatimi výrobkami budú práve tri chybné?
+  </blockquote>
+  <center>
+  <font size="4">
+   <p>Množina Ω obsahuje všetky desaťmiestne výbery výrobkov spomedzi 100 prvkov.<br>
+   Ako už vieme, desaťprvkových kombinácií zo 100 prvkov vieme vytvoriť celkom:
+   <p><img src="img/page5_omega.png" height="40px">
+  </font>
+  </center>
+  <center><div id="page5_1" style="display:inline;"> 
+    <font size="4">
+      <p>Udalosť A si vieme rozdeliť na dve podudalosti:
+      <p>vyberieme 7 dobrých výrobkov z 95 dobrých <strong>a zároveň</strong> vyberieme 3 zlé výrobky z 5 zlých
+      <br>
+      <p>Čiže počet prvkov množiny A bude: (označ možnosť, ktorá je podľa teba správna)<br>
+      <p>
+      <input id="odpoved11" type="image" src="img/page5_b1.png" onclick="page5_vyber(1);" height="60px" style="width:auto; margin:10px; padding:10px; background-color:white; border:2px solid #4582ec"/>
+      <input id="odpoved22" type="image" src="img/page5_b2.png" onclick="page5_vyber(2)" height="60px" style="width:auto; margin:10px; padding:10px; background-color:white; border:2px solid #4582ec"/>
+      <input id="odpoved33" type="image" src="img/page5_b3.png" onclick="page5_vyber(3)" height="60px" style="width:auto; margin:10px; padding:10px; background-color:white; border:2px solid #4582ec"/>
+    </p>
+   <div class="col-lg-12">
+     <br>
+     <button class="btn btn-primary" style="float:left; margin-bottom: 30px;" onclick="change_page_back(5);">Späť</button>
+     <button class="btn btn-primary" style="float:right; margin-bottom: 30px;" onclick="change_page(5);">Pokračovať</button>
+   </div>
+  </div></center>
+  <center><div id="page5_2" style="display:none;"> 
+    <font size="4">
+     <p>Správne, čiže ku každej sedmici dobrých výrobkov máme presne (5 nad 3) trojíc chybných výrobkov.
+     <p><img src="img/page5_A.png" height="40px">
+    </font>
+     <div class="col-lg-12">
+       <font size="4">
+        <p style="float:left;"><strong>Potom z definície platí:</strong></p><br><br>
+      </font>
+     </div>
+     <div class="col-lg-12">
+      <div class="col-lg-8 col-lg-offset-2" style="padding:10px; padding-top:20px; padding-bottom:20px; background-color:white; border:4px solid #4582ec">
+      <font size="5">
+        P (A) = <sup>|A|</sup>&frasl;<sub>|Ω|</sub> = <sup>(97 nad 7) * (5 nad 3)</sup>&frasl;<sub>(100 nad 10)</sub> = 0,011
+      </font>
+      </div>
+     </div>
+     <div class="col-lg-12">
+       <br>
+       <button class="btn btn-primary" style="float:left; margin-bottom: 30px;" onclick="change_page_back(5);">Späť</button>
+       <button class="btn btn-primary" style="float:right; margin-bottom: 30px;" onclick="change_page(5);">Pokračovať</button>
+     </div>
+   </div>
+  </div></center>
+</div>
+
+<div id="page6" class="col-lg-8 col-lg-offset-2" style="display:none;">
+  <blockquote>
+    <p><strong>Príklad 1.5.</strong><br>
+    Hádžeme dvoma hracími kockami. Aká je pravdepodobnosť toho, že súčet bodiek na oboch kockách bude 9?
+  </blockquote>
+  <center>
+    <font size="4">
+      <p>Pripomeňme si karteziánsky súčin dvoch množín A a B:
+      <p><i>Označenie A x B rozumieme množinu všetkých takých usporiadaných dvojíc (x, y), že x &isin; A, y &isin; B.</i>
+      <p>V našom príklade je A množina výsledkov na prvej kocke a B je množina výsledkov na druhej kocke.
+      <br>Vyskúšaj si ako to funguje:<br>
+      <p>
+      <buttom id="roll_button" class="btn btn-primary" onclick="rollDice();">Hoď kockami</buttom>
+	  <button id="roll_end_button" class="btn btn-primary" onclick="rollEndDice();">Hoď všetky možné hody</button>
+	  <br>
+	  <p>
+      <img id="side3_dice1" src="img/cube2.png" width="60px" height="60px" style="margin-right: 10px;">
+	  <img id="side3_dice2" src="img/cube5.png" width="60px" height="60px" style="margin-left: 10px;">
+	  <h4 id="rolled_num" style="margin: 10px 0px 10px 0px;">( 2 , 5 ) = 7<h4>
+	  <table id="table_hody">
+	    <tr>
+	      <td style="padding: 10px 10px; border: 2px solid #4582ec;">
+	      	<div>padne súčet 9 na kockách (A x B):</div>
+	      </td>
+	      <td style="padding: 10px 10px; border: 2px solid #4582ec;">
+	        <div>všetky možné hody (Ω):</div>
+	      </td>
+	    </tr>
+	    <tr>
+	      <td style="padding: 10px 10px; border: 2px solid #4582ec;">
+	        <div id="priaznive_pripady"></div>
+	      </td>
+	      <td style="padding: 10px 10px; border: 2px solid #4582ec;">
+	        <div id="vsetky_pripady">( 2 , 5 )</div>
+	      </td>
+	    </tr>
+	  </table>
+	</font>
+  </center>
+  <center><div id="page6_1" style="display:none;">
+   <font size="4">
+      Všimni si, že hod ( 3 , 6) a ( 6 , 3 ) sú dva rozdielne hody.<br>
+      Všetky prípady hodu na dvoch kockách sme teda dostali karteziánskym súčinom<br>
+      { 1, 2, 3, 4, 5, 6 } x { 1, 2, 3, 4, 5, 6 } = 36<br>
+    </font>
+    <div class="col-lg-12">
+       <p>
+    </div>
+    <div class="col-lg-12">
+      <div class="col-lg-8 col-lg-offset-2" style="padding:10px; padding-top:20px; padding-bottom:20px; background-color:white; border:4px solid #4582ec">
+        <font size="5"><p>
+          P (A x B) = <sup>|A x B|</sup>&frasl;<sub>|Ω|</sub> = <sup>4</sup>&frasl;<sub>36</sub> = <sup>1</sup>&frasl;<sub>9</sub>
+        </font>
+      </div>
+    </div> 
+  </div></center>
+  <br>
+  <div class="col-lg-12">
+       <br>
+       <button class="btn btn-primary" style="float:left; margin-bottom: 30px;" onclick="change_page_back(6);">Späť</button>
+       <button class="btn btn-primary" style="float:right; margin-bottom: 30px;" onclick="change_page(6);">Pokračovať</button>
+  </div>
+</div>
+
+<div id="page7" class="col-lg-8 col-lg-offset-2" style="display:none;">
+  <blockquote>
+    <p><strong>Príklad 1.6.</strong><br>
+    V telefónnej ústredni možno vytáčať trojmiestne čísla (0 môže byť aj na začiatku). Aká je pravdepodobnosť toho, že v náhodne vytočenom trojmiestnom čísle budú všetky cifry rôzne?
+  </blockquote>
+  <center>
+  <font size="4">
+   <p>Množina Ω sú všetky možné trojice tvorené z desiatich prvkov, v ktorých sa prvky môžu opakovať.
+   <p>Čiže Ω sú všetky variácie s opakovaním 3. triedy z 10 prvkov, čo je: &nbsp;&nbsp;&nbsp; <strong>|Ω| = 10<sup>3</sup></strong>
+   <p>Fakt, že sme vytáčali náhodne znamená, že všetky trojice sú rovnako pravdepodobné.
+   <p>Do skúmanej udalosti A patri tie usporiadané trojice (i, j, k), v ktorých sú i, j, k navzájom rôzne. Počet takýchto trojíc je počet všetkých variácií (bez opakovania) 3. triedy z 10 prvkov.
+   <p>Čiže &nbsp;&nbsp;<strong>|A| = 10 * 9 * 8</strong>
+   </font>
+   <div class="col-lg-12">
+     <font size="4">
+      <p style="float:left;"><strong>Potom z definície platí:</strong></p><br><br>
+   </font>
+   </div> 
+   <div class="col-lg-12">
+     <div class="col-lg-8 col-lg-offset-2" style="padding:10px; padding-top:20px; padding-bottom:20px; background-color:white; border:4px solid #4582ec">
+      <font size="5">
+        P (A) = <sup>|A|</sup>&frasl;<sub>|Ω|</sub> = <sup>10 * 9 * 8</sup>&frasl;<sub>10 * 10 * 10</sub> = 0,72
+      </font>
+     </div>
+   </div>  
+  </center>
+  <div class="col-lg-12">
+     <br>
+     <button class="btn btn-primary" style="float:left; margin-bottom: 30px;" onclick="change_page_back(7);">Späť</button>
+     <button class="btn btn-primary" style="float:right; margin-bottom: 30px;" onclick="change_page(7);">Pokračovať</button>
+  </div>
+</div>
+
+<div id="page8" class="col-lg-8 col-lg-offset-2" style="display:none;">
+  <blockquote>
+    <p>Niekedy je potrebné si danú udalosť rozložiť na jednoduchšie. K tomu slúžia množinové operácie, a to nasledovné:
+    <p><strong>Komplement A'</strong> množiny A je množina tých prvkov w &isin; Ω, ktoré nepatria do A.<br>
+    <center>A' = {w &isin; Ω, w &notin; A}</center>
+    V pravdepodobnosti ho budeme nazývať <strong>opačná udalosť</strong>.<br><br>
+    <p><strong>Zjednotenie A &cup; B</strong> množín A,B je množina práve tých prvkov w &isin; Ω, ktoré patria aspoň do jednej z množín A,B (alebo môžu patriť aj do oboch zároveň!).<br>
+    <center>A &cup; B = {w &isin; Ω, w &isin; A <strong>alebo</strong> w &isin; B}</center><br>
+    <p><strong>Prienik A &cap; B</strong> množín A,B je množina práve tých prvkov w &isin; Ω, ktoré patria súčasne do oboch množín A,B.<br>
+    <center>A &cap; B = {w &isin; Ω, w &isin; A <strong>a zároveň</strong> w &isin; B}</center>
+  </blockquote>
+  <div class="col-lg-12">
+     <br>
+     <button class="btn btn-primary" style="float:left; margin-bottom: 30px;" onclick="change_page_back(8);">Späť</button>
+     <button class="btn btn-primary" style="float:right; margin-bottom: 30px;" onclick="change_page(8);">Pokračovať</button>
+  </div>
+</div>
+
+<div id="page9" class="col-lg-8 col-lg-offset-2" style="display:none;">
+   <blockquote>
+    <p>Aby sme vedeli vypočítať pravdepodobnosť udalosti A', A &cap; B, A &cup; B, je potrebné poznať počty prvkov v týchto množinách.
+    <p>Pre <strong>komplement</strong> je to najjednoduchšie, lebo vieme presný počet prvkov v množine A. 
+    <p>Najprv si načrtneme množinu Ω a jej podmnožinu A:
+    <center><img src="img/page9_obr1.png" height="100"></center>
+    <p>Pre výpočet pravdepodobnosti komplementu A' nám potom stačí od istej udalosti (|Ω| = 1) odpočítať pravdepodobnosť udalosti A.
+    <center><img src="img/page9_obr2.png" height="100"></center><br>
+    <p><center><strong>P(A') = 1 - P(A)</strong></center>
+  </blockquote>
+  <div class="col-lg-12">
+     <br>
+     <button class="btn btn-primary" style="float:left; margin-bottom: 30px;" onclick="change_page_back(9);">Späť</button>
+     <button class="btn btn-primary" style="float:right; margin-bottom: 30px;" onclick="change_page(9);">Pokračovať</button>
+  </div>
+</div>
+
+<div id="page10" class="col-lg-8 col-lg-offset-2" style="display:none;">
+   <blockquote>
+    <p>V prípade <strong>A &cap; B, a A &cup; B</strong> je situácia komplikovanejšia tým, že počet prvkov A &cap; B, a A &cup; B nie je určený počtom prvkov množín A,B.
+    <p>Načrtnime si množiny A a B:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="img/page10_obr1.png" height="100">
+    <p>Z obrázku si vieme zapísať, že pre zjednotenie platí:<br><center><img src="img/page10_obr2.png" height="130"></center>
+    <center>
+    <p>|A &cup; B| = (|A| - |A &cap; B|) + |A &cap; B| +  (|B| - |A &cap; B|) = |A| + |B| - (|A &cap; B|)
+    <p><strong>P(A &cup; B) = P(A) + P(B) - P(A &cap; B)</strong></center><br>
+    <p>Z výslednej rovnice si potom vieme odvodiť aj výpočet pravdepodobnosti prieniku dvoch množín:
+    <center><p><strong>P(A &cap; B) = P(A) + P(B) - P(A &cup; B)</strong></center>
+  </blockquote>
+  <div class="col-lg-12">
+     <br>
+     <button class="btn btn-primary" style="float:left; margin-bottom: 30px;" onclick="change_page_back(10);">Späť</button>
+     <button class="btn btn-primary" style="float:right; margin-bottom: 30px;" onclick="change_page(10);">Pokračovať</button>
+  </div>
+</div>
+
+<div id="page11" class="col-lg-8 col-lg-offset-2" style="display:none;">
+   <blockquote>
+    <p><strong>Príklad 1.7.</strong><br>
+    Hádžeme tromi hracími kockami. Aká je pravdepodobnosť, že aspoň na jednej bude šestka?
+  </blockquote>
+  <center>
+    <font size="4">
+      Ľahšie vypočítame pravdepodobnosť udalosti A: nepadne šestka, čo je: &nbsp;&nbsp;&nbsp; <strong>P(A) = <sup>5<sup>3</sup></sup>&frasl;<sub>6<sup>3</sup></sub></strong><br>
+      pretože všetkých usporiadaných trojíc z čísel 1, 2, ...6 je <strong>6<sup>3</sup></strong><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a všetkých usporiadaných trojíc z čísel 1, 2, ...5 je <strong>5<sup>3</sup></strong><br><br>
+      <p>Udalosť A (nepadne šestka) je opačnou udalosťou ku skúmanej udalosti (aspoň na jednej kocke padne šestka).<br>Potom udalosť, že aspoň na jednej kocke padne šestka si označíme A'.
+      <br>
+      <p>Všimnime si, že v tomto príklade využívame operáciu <strong>komplement</strong>.
+    </font>
+  </center>
+  <font size="4">
+      <p style="float:left;"><strong>Potom dostaneme:</strong></p><br>
+   </font>
+  <center>
+   <div class="col-lg-12">
+     <div class="col-lg-8 col-lg-offset-2" style="padding:10px; padding-top:20px; padding-bottom:20px; background-color:white; border:4px solid #4582ec">
+      <font size="5">
+        P (A) = 1 - P(A') = 1 - <sup>5<sup>3</sup></sup>&frasl;<sub>6<sub>3</sub></sub>
+      </font>
+     </div>
+   </div>  
+  </center>
+  <div class="col-lg-12">
+     <br>
+     <button class="btn btn-primary" style="float:left; margin-bottom: 30px;" onclick="change_page_back(11);">Späť</button>
+     <button class="btn btn-primary" style="float:right; margin-bottom: 30px;" onclick="change_page(11);">Pokračovať</button>
+  </div>
+</div>
+
+<div id="page12" class="col-lg-8 col-lg-offset-2" style="display:none;">
+   <blockquote>
+    <p><strong>Príklad 1.8.</strong><br>
+    Opäť hádžeme tromi hracími kockami. Aká je pravdepodobnosť, že padne nanajvýš jedna šestka?
+  </blockquote>
+  <center>
+    <font size="4">
+      <p>Skúsme rozdeliť udalosť A: padne nanajvýš jedna šestka na 2 podudalosti.<br>
+      <p> 
+      <table>
+        <tr>
+          <td>
+            <strong>Padne nanajvýš jedna šestka = &nbsp;&nbsp;<strong>
+          </td>
+          <td onmouseenter="pridaj_udalost('podudalost1')" style="padding:5px;background-color:white;border:2px solid #4582ec;" width="245" height="40">
+            <div id="podudalost1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+          </td>
+          <td>
+          	&nbsp;&nbsp;<strong>alebo&nbsp;&nbsp;<strong>
+          </td>
+          <td onmouseenter="pridaj_udalost('podudalost2')" style="padding:5px;background-color:white;border:2px solid #4582ec;" width="245" height="40">
+            <div id="podudalost2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+          </td>
+        </tr>
+      </table><br>
+      <div id="page12_1">
+		  <p>Vyber dve podudalosti, ktoré svojim <strong>prienikom</strong> vytvoria udalosť A.<br>
+		  (potiahni políčka s udalosťou ktorú si vybral na príslušné miesto)
+	      <table>
+	        <tr>
+	          <td style="padding:5px;">
+	            <div id="A0" draggable="true" ondrag="drag_udalost('A0')" ondragstart="dragStart(event)" style="background-color:white; padding:5px; border:1px solid #4582ec;">A<sub>0</sub>: padne práve jedna šestka</div>
+	          </td>
+	          <td style="padding:5px;">
+	            <div id="A1" draggable="true" ondrag="drag_udalost('A1')" ondragstart="dragStart(event)" style="background-color:white; padding:5px; border:1px solid #4582ec;">A<sub>1</sub>: padnú práve dve šestky</div>
+	          </td>
+	          <td style="padding:5px;">
+	            <div id="A2" draggable="true" ondrag="drag_udalost('A2')" ondragstart="dragStart(event)" style="background-color:white; padding:5px; border:1px solid #4582ec;">A<sub>2</sub>: nepadne žiadna šestka</div>
+	          </td>
+	        </tr>
+	      </table>
+	  </div>
+	  <div id="page12_2" style="display:none;">
+		  <p id="page12_text"></p>
+		  <p>Udalosť A<sub>0</sub> už vieme vypočítať z predchádzajúceho príkadu: &nbsp;&nbsp;<strong>P(A<sub>0</sub>) = <sup>5<sup>3</sup></sup>&frasl;<sub>6<sup>3</sup></sub></strong>  
+		  <p>Udalosť A<sub>2</sub> si môžeme tiež rozložiť na podudalosti: &nbsp;&nbsp;
+		  <strong>A<sub>2</sub> = B<sub>1</sub> &cup; B<sub>2</sub> &cup; B<sub>3</sub></strong>, kde B<sub>i</sub> znamená, že na i-tej kocke padne číslo šesť<br>
+		  Čiže &nbsp;&nbsp;<strong>P(A<sub>2</sub>) = P(B<sub>1</sub>) + P(B<sub>2</sub>) + P(B<sub>3</sub>) = <sup>5<sup>2</sup></sup>&frasl;<sub>6<sub>3</sub></sub> + <sup>5<sup>2</sup></sup>&frasl;<sub>6<sub>3</sub></sub> + <sup>5<sup>2</sup></sup>&frasl;<sub>6<sub>3</sub></sub> = <sup>3 * 5<sup>2</sup></sup>&frasl;<sub>6<sub>3</sub></sub></strong>
+	  </div>
+    </font>
+  </center>
+  <font size="4" id="page12_vysledok_font" style="display:none;">
+      <p style="float:left;"><strong>Po dosadení všetkých podudalostí základnej rovnice dostaneme:</strong></p>
+   </font>
+  <center>
+   <div class="col-lg-12" id="page12_vysledok_div" style="display:none;">
+     <div class="col-lg-8 col-lg-offset-2" style="padding:10px; padding-top:20px; padding-bottom:20px; background-color:white; border:4px solid #4582ec">
+      <font size="5">
+        <p id="page12_vysledok"></p>
+      </font>
+     </div>
+   </div>  
+  </center>
+  <div class="col-lg-12">
+     <br>
+     <button class="btn btn-primary" style="float:left; margin-bottom: 30px;" onclick="change_page_back(12);">Späť</button>
+     <button class="btn btn-primary" style="float:right; margin-bottom: 30px;" onclick="change_page(12);">Pokračovať</button>
+  </div>
+</div>
+
+<div id="page13" class="col-lg-8 col-lg-offset-2" style="display:none;">
+   <blockquote>
+    <p><strong>Príklad 1.9.</strong><br>
+    Hádžeme dvoma hracími kockami. Aká je pravdepodobnosť toho, že aspoň na jednej padne šestka?
+  </blockquote>
+  <center>
+    <font size="4">
+      <p>Podobnú úlohu sme riešili v príklade 1.7 ale tentokrát pri počítaní nepoužijeme opačnú udalosť, ale vyriešime príklad cez rovnosť.<br>
+      <p>Majme 2 udalosti:<br> 
+      <strong>A: šestka padne na prvej kocke&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;B: šestka padne na druhej kocke</strong><br>
+      <p>P (aspoň na jednej kocke padne 6) = P(A &cup; B) = P(A) + P(B) - P(A &cap; B)<br>
+  	  <p>Čiže potom: 
+  	  <p><strong>P(A &cup; B) = <sup>6</sup>&frasl;<sub>36</sub> + <sup>6</sup>&frasl;<sub>36</sub> - <sup>1</sup>&frasl;<sub>36</sub> = <sup>11</sup>&frasl;<sub>36</sub><br></strong>
+  	  <p>Všimnime si, že pomocou opačnej udalosti nám výjde ten istý výsledok.<br>
+  	  <p><strong>P(A &cup; B) = 1 - P(A &cap; B) = 1 - <sup>6<sup>2</sup></sup>&frasl;<sub>6<sup>2</sup></sub> = <sup>11</sup>&frasl;<sub>36</sub><br><br></strong>
+    </font>
+  </center>
+  <div class="col-lg-12">
+     <br>
+     <button class="btn btn-primary" style="float:left; margin-bottom: 30px;" onclick="change_page_back(13);">Späť</button>
+     <a href="teoria_kom.html" class="btn btn-primary" style="float:right; margin-bottom: 30px;">Pokračovať na dodatok</a>
+  </div>
+</div>
+
+<script type="text/javascript" src="js/prihlasenie.js"></script>
+</body>
+<footer>
+  <div class="footer navbar-fixed-bottom">
+    <p>Vytvorila Zuzana Majeríková ako bakalársku prácu.</p>
+  </div>
+</footer>
+</html>

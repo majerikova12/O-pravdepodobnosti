@@ -1,0 +1,124 @@
+{
+	"priklady": [{
+		"zadanie": "Vykonajme hod pravidelnou hracou kockou so šiestimi stenami. Aká je pravdepodobnosť toho, že na padnutej stene bude číslo jedna alebo číslo dva?",
+		"udalosti": [
+			{"nazov": "padne ľubovolné číslo", "oznacenie": "A", "mnozina": [1, 2, 3, 4, 5, 6]},
+			{"nazov": "padne číslo jedna", "oznacenie": "D", "mnozina": [1]},
+			{"nazov": "padne číslo dva", "oznacenie": "E", "mnozina": [2]},
+			{"nazov": "padne číslo tri", "oznacenie": "F", "mnozina": [3]},
+			{"nazov": "padne číslo štyri", "oznacenie": "G", "mnozina": [4]},
+			{"nazov": "padne číslo päť", "oznacenie": "H", "mnozina": [5]},
+			{"nazov": "padne číslo šesť", "oznacenie": "I", "mnozina": [6]}
+		],
+		"kombinatorika": [],
+		"vysledok": {
+			"citatel": 1,
+			"menovatel": 3
+		}
+	}, {
+		"zadanie": "V škatuli máme uložených päť bielych a päť čiernych guličiek. Vyberieme tri. Aká je pravdepodobnosť toho, že všetky tri sú čierne?",
+		"udalosti": [],
+		"kombinatorika": [
+		    {"nazov": "počet výberov 3 guličiek z 10 guličiek", "typ": "kn", "n": 10, "k": [3]},
+			{"nazov": "počet výberov 3 guličiek z 5 guličiek", "typ": "kn", "n": 5, "k": [3]},
+			{"nazov": "počet výberov 1 guličiky z 10 guličiek", "typ": "kn", "n": 10, "k": [1]},
+			{"nazov": "počet výberov 1 guličiky z 5 guličiek", "typ": "kn", "n": 5, "k": [1]}	
+		],
+		"vysledok": {
+			"citatel": 1,
+			"menovatel": 12
+		}
+	}, {
+		"zadanie": "Do výťahu v budove so siedmimi poschodiami nastupujú dve osoby. Aká je pravdepodobnosť toho, že obidve osoby vystúpia na 3. poschodí?",
+		"udalosti": [
+			{"nazov": "vystúpi na ľubovoľnom poschodí", "oznacenie": "A", "mnozina": [1, 2, 3, 4, 5, 6, 7]},
+			{"nazov": "vystúpi na 1. poschodí", "oznacenie": "D", "mnozina": [1]},
+			{"nazov": "vystúpi na 2. poschodí", "oznacenie": "E", "mnozina": [2]},
+			{"nazov": "vystúpi na 3. poschodí", "oznacenie": "F", "mnozina": [3]},
+			{"nazov": "vystúpi na 4. poschodí", "oznacenie": "G", "mnozina": [4]},
+			{"nazov": "vystúpi na 5. poschodí", "oznacenie": "H", "mnozina": [5]},
+			{"nazov": "vystúpi na 6. poschodí", "oznacenie": "I", "mnozina": [6]},
+			{"nazov": "vystúpi na 7. poschodí", "oznacenie": "J", "mnozina": [7]}
+		],
+		"kombinatorika": [],
+		"vysledok": {
+			"citatel": 1,
+			"menovatel": 49
+		}
+	}, {
+		"zadanie": "Na otvorenie trezoru potrebujeme trojmiestny číselný kód (čísla v rozmedzí od 0 do 9). Aká je pravdepodobnosť toho, že číselný kód v náhodne vybratom trezore má všetky čísla párne?",
+		"udalosti": [],
+		"kombinatorika": [
+			{"nazov": "počet rozmiestnení 10 číslic na 3 miesta (číslice sa môžu opakovať)", "typ": "vo", "n": 10, "k": [3]},
+			{"nazov": "počet rozmiestnení 5 číslic na 3 miesta (číslice sa môžu opakovať)", "typ": "vo", "n": 5, "k": [3]},
+			{"nazov": "počet rozmiestnení 2 číslic na 3 miesta (číslice sa môžu opakovať)", "typ": "vo", "n": 2, "k": [3]}
+		],
+		"vysledok": {
+			"citatel": 1,
+			"menovatel": 8
+		}
+	}, {
+		"zadanie": "Aká je pravdepodobnosť, že pri hode dvoma hracími kockami padne na oboch číslo väčšie ako 4?",
+		"udalosti": [
+			{"nazov": "padne ľubovolné číslo", "oznacenie": "A", "mnozina": [1, 2, 3, 4, 5, 6]},
+			{"nazov": "padne číslo jedna", "oznacenie": "D", "mnozina": [1]},
+			{"nazov": "padne číslo dva", "oznacenie": "E", "mnozina": [2]},
+			{"nazov": "padne číslo tri", "oznacenie": "F", "mnozina": [3]},
+			{"nazov": "padne číslo štyri", "oznacenie": "G", "mnozina": [4]},
+			{"nazov": "padne číslo päť", "oznacenie": "H", "mnozina": [5]},
+			{"nazov": "padne číslo šesť", "oznacenie": "I", "mnozina": [6]}
+		],
+		"kombinatorika": [],
+		"vysledok": {
+			"citatel": 1,
+			"menovatel": 9
+		}
+	} ,{
+		"zadanie": "V triede je 10 dievčat a 8 chlapcov. Aká je pravdepodobnosť toho, že medzi prvými tromi žiakmi podľa abecedy sú len chlapci?",
+		"udalosti": [],
+		"kombinatorika": [
+			{"nazov": "počet výberov 3 žiakov z 18 žiakov", "typ": "kn", "n": 18, "k": [3]},
+			{"nazov": "počet výberov 3 žiakov z 10 žiakov", "typ": "kn", "n": 10, "k": [3]},
+			{"nazov": "počet výberov 3 žiakov z 8 žiakov", "typ": "kn", "n": 8, "k": [3]}
+		],
+		"vysledok": {
+			"citatel": 7,
+			"menovatel": 102
+		}
+	}, {
+		"zadanie": "Do výťahu v osemposchodovej budove nastupujú traja ľudia. Aká je pravdepodobnosť toho, že práve dvaja vystúpia na siedmom poschodí?",
+		"udalosti": [
+			{"nazov": "vystúpi na ľubovoľnom poschodí", "oznacenie": "A", "mnozina": [1, 2, 3, 4, 5, 6, 7, 8]},
+			{"nazov": "vystúpi na 1. poschodí", "oznacenie": "D", "mnozina": [1]},
+			{"nazov": "vystúpi na 2. poschodí", "oznacenie": "E", "mnozina": [2]},
+			{"nazov": "vystúpi na 3. poschodí", "oznacenie": "F", "mnozina": [3]},
+			{"nazov": "vystúpi na 4. poschodí", "oznacenie": "G", "mnozina": [4]},
+			{"nazov": "vystúpi na 5. poschodí", "oznacenie": "H", "mnozina": [5]},
+			{"nazov": "vystúpi na 6. poschodí", "oznacenie": "I", "mnozina": [6]},
+			{"nazov": "vystúpi na 7. poschodí", "oznacenie": "J", "mnozina": [7]},
+			{"nazov": "vystúpi na 8. poschodí", "oznacenie": "K", "mnozina": [8]}
+		],
+		"kombinatorika": [
+			{"nazov": "počet výberov 2 osôb z 3 ľudí", "typ": "kn", "n": 3, "k": [2]},
+			{"nazov": "počet výberov 3 osôb z 3 ľudí", "typ": "kn", "n": 3, "k": [3]},
+			{"nazov": "počet výberov 1 osôby z 3 ľudí", "typ": "kn", "n": 3, "k": [1]}
+		],
+		"vysledok": {
+			"citatel": 3,
+			"menovatel": 64
+		}
+	}, {
+		"zadanie": "Aká je v Športke pravdepodobnosť výhry druhej ceny na jeden tip? (Z 20 čísel tipujme 5 čísel, pričom na druhú cenu musíme uhádnuť práve štyri čísla.)",
+		"udalosti": [],
+		"kombinatorika": [
+			{"nazov": "počet výberov 5 čísel z 20 čísel", "typ": "kn", "n": 20, "k": [5]},
+			{"nazov": "počet výberov 4 čísel z 20 čísel", "typ": "kn", "n": 20, "k": [4]},
+			{"nazov": "počet výberov 4 čísel z 5 čísel", "typ": "kn", "n": 5, "k": [4]},
+			{"nazov": "počet výberov 1 čísel z 15 čísel", "typ": "kn", "n": 15, "k": [1]}
+		],
+		"vysledok": {
+			"citatel": 25,
+			"menovatel": 5168
+		}
+	}]
+}

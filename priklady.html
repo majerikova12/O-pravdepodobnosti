@@ -1,0 +1,199 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="readable.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> 
+    <meta name="google-signin-scope" content="profile email">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content="343413004275-mv8l0atmp7s1j4ufroq4clh37g08bjvd.apps.googleusercontent.com">
+    <!--<script type="text/javascript" src="js/jquery-2.1.4.js"></script>-->
+    <script src="js/math.js" type="text/javascript"></script>
+  <title>O pravdepodobnosti</title>
+</head>
+<body id="uvodne_body">
+<nav class="navbar navbar-default">
+ <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">
+        <img style="max-width:35px;" src="img/logo.png">
+      </a>
+    </div>
+    <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1" aria-expanded="false" style="height: 1px;">
+      <ul class="nav navbar-nav">
+        <li><a href="index.html"><font size="5"><strong>O pravdepodobnosti</strong></font></a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Teória<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="teoria.html">Pravdepodobnosť</a></li>
+            <li><a href="teoria_kom.html">Dodatok - kombinátorika</a></li>
+          </ul>
+        </li>
+        <li><a href="priklady.html">Príklady</a></li>
+        <li><a href="triedy.html">Triedy</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><div id="google_profil" style="display: none;"></div></li>
+        <li><div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark" style="display: inline;"></div></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<center><div class="col-lg-12" id="skupiny" style="display:inline;">
+  <div id="tab_skupiny" class="col-lg-8 col-md-12 col-sm-12 col-lg-offset-2">
+  	<div class="col-lg-6 col-md-12 col-sm-12"><img class="img-responsive" src="img/priklady1.png" style="max-height:150px; border:3px solid #4582ec; margin:10px;" id="skupina1" onclick="load_priklady(1);"/></div>
+  	<div class="col-lg-6 col-md-12 col-sm-12"><img class="img-responsive" src="img/priklady2.png" style="max-height:150px; border:3px solid #4582ec; margin:10px;" id="skupina2" onclick="load_priklady(2);"/></div>
+  	<div class="col-lg-6 col-md-12 col-sm-12"><img class="img-responsive" src="img/priklady3.png" style="max-height:150px; border:3px solid #4582ec; margin:10px;" id="skupina3" onclick="load_priklady(3);"/></div>
+  	<div class="col-lg-6 col-md-12 col-sm-12"><img class="img-responsive" src="img/priklady4.png" style="max-height:150px; border:3px solid #4582ec; margin:10px;" id="skupina4" onclick="load_priklady(4);"/></div>
+  </div>
+</div></center>
+<center><div class="col-lg-12" id="priklady" style="display:none;">
+  <table id="tab_priklady">
+  </table>
+</div></center>
+<center><div id="priklad" class="col-lg-12" style="display:none;">
+  <div class="col-lg-8 col-lg-offset-2"><h4 id="zadanie"></h4>
+  </div>
+  <div class="col-lg-12">
+    <div class="col-lg-12">
+      <table>
+          <tr id="tr_nastroje">
+            <td style="padding-left:3px; padding-right:3px;">
+              <button id="zjednotenie" class="btn btn-default" style="background-color:#9999ff;" type="button" data-toggle="tooltip" data-placement="top" title="" data-original-title="Klikni sem, potom udalosť A a potom na udalosť B." onclick="click_nastroj('zjednotenie');"><b>zjednotenie<br>A,B -> A∪B</b></button>
+            </td>
+            <td style="padding-left:3px; padding-right:3px;">
+              <button id="prienik" class="btn btn-default" style="background-color:#9999ff;" type="button" data-toggle="tooltip" data-placement="top" title="" data-original-title="Klikni sem, potom udalosť A a potom na udalosť B." onclick="click_nastroj('prienik');"><b>prienik<br>A,B -> A∩B</b></button>
+            </td>
+	    <td style="padding-left:3px; padding-right:3px;">
+            <button id="kartez" class="btn btn-default" style="background-color:#9999ff;" type="button" data-toggle="tooltip" data-placement="top" title="" data-original-title="Klikni sem, potom na prvú udalosť a potom na druhú udalosť v karteziánskom súčine." onclick="click_nastroj('kartez');"><b>kart. súčin<br>AxB</b></button>
+            </td>
+	    <td style="padding-left:3px; padding-right:3px;">
+              <button id="zjednotenie" class="btn btn-default" style="background-color:#ff9999;" type="button" data-toggle="tooltip" data-placement="top" title="" data-original-title="Klikni sem, potom na prvú udalosť definovanú počtom |A| a potom na druhú udalosť definovanú počtom |B|, kde A ∧ B = 0." onclick="click_nastroj('zjednotenie');"><b>disjunkcia<br>|A|,|B| -> |A∨B|</b></button>
+            </td>
+            <td style="padding-left:3px; padding-right:3px;">
+              <button id="prienik" class="btn btn-default" style="background-color:#ff9999;" type="button" data-toggle="tooltip" data-placement="top" title="" data-original-title="Klikni sem, potom na prvú udalosť definovanú počtom |A| a potom na druhú udalosť definovanú počtom |B|, kde A,B sú nezávislé." onclick="click_nastroj('prienik');"><b>konjunkcia<br>|A|,|B| -> |A∧B|</b></button>
+            </td>
+            <td style="padding-left:3px; padding-right:3px;">
+              <button id="zjednotenie" class="btn btn-default" style="background-color:#99ff99;" type="button" data-toggle="tooltip" data-placement="top" title="" data-original-title="Klikni sem, potom pravdepodobnosť P(A) a potom na pravdepodobnosť P(B), kde A,B sú nezávislé." onclick="click_nastroj('zjednotenie');"><b>zjednotenie<br>P(A),P(B) -> P(A∨B)</b></button>
+            </td>
+            <td style="padding-left:3px; padding-right:3px;">
+              <button id="prienik" class="btn btn-default" style="background-color:#99ff99;" type="button" data-toggle="tooltip" data-placement="top" title="" data-original-title="Klikni sem, potom pravdepodobnosť P(A) a potom na pravdepodobnosť P(B)." onclick="click_nastroj('prienik');"><b>prienik<br>P(A),P(B) -> P(A∧B)</b></button>
+            </td>
+	    <td style="padding-left:3px; padding-right:3px;">
+            <button id="minus" class="btn btn-default" style="background-color:#99ff99;" type="button" data-toggle="tooltip" data-placement="top" title="" data-original-title="Klikni sem a na udalosť ku ktorej chceš vypočítať doplnok." onclick="click_nastroj('minus');"><b>doplnok<br>1 - P(A)</b></button>
+            </td>
+	    <td style="padding-left:3px; padding-right:3px;">
+            <button id="vysledok" class="btn btn-default" style="background-color:#99ff99;" type="button" data-toggle="tooltip" data-placement="top" title="" data-original-title="Klikni sem a potom na pravdepodobnosť o ktorej si o ktorej si myslýš že je riešením príkladu." onclick="click_nastroj('vysledok');"><b>výsledok<br>?</b></button>
+            </td>
+            <td style="padding-left:3px; padding-right:3px;">
+              <button id="pravdepodobnost" class="btn btn-default" style="background-color:#99e9ff;" type="button" data-toggle="tooltip" data-placement="top" title="" data-original-title="Klikni sem, potom na všetky priaznivé výsledky pokusu a potom na všetky výsledky pokusu." onclick="click_nastroj('pravdepodobnost');"><b>pravdepod.<br>P(A)</b></button>
+            </td>
+          </tr>
+      </table>
+      <br>
+      <div id="plocha">
+        <img id="trash" src="img/trash.png" width="50" height="60" style="float:right; margin:10px;">
+      </div>
+      <div id="vypis" style="display:none;"><p>Vypis</p></div>
+      <div id="div_udalosti" class="row">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Vytvor<br>novú udalosť</button>
+      </div>
+    </div>
+  </div>
+</div></center>
+<div class="col-lg-12" style="margin-top:15px;"><br></div>
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="polek=[];">&times;</button>
+        <h4 class="modal-title">Nová udalosť</h4><br>
+        <button type="button" id="modal_b1" onclick="modal_to_ud();" class="btn btn-default active">Množinová udalosť</button>
+        <button type="button" id="modal_b2" onclick="modal_to_kom();" class="btn btn-default">Kombinátorická udalosť</button>  
+        <button type="button" id="modal_b3" onclick="modal_to_num();" class="btn btn-default">Číslo</button>
+      </div>
+      <div class="modal-body">
+
+        <div id="modal_udalosti">
+          <label class="control-label">Popis:</label><input class="form-control" type="text" id="popis_udalosti" value="" size="10" maxlength="40" onchange="zmen_popis();"> 
+          <label class="control-label">Označenie:</label><input class="form-control" type="text" id="oznacenie_udalosti" onchange="zmen_oznacenie();" value="" size="2" maxlength="5">
+          <label class="control-label">Pridaj prvok do udalosti:</label><input class="form-control" type="number" id="udalost" min="1" max="100" maxlength="3" size="1"><br> 
+          <button class="btn btn-default" onclick="pridaj_prvok_udalosti();">Pridať prvok do udalosti</button>
+          <button class="btn btn-default" onclick="vymaz_tvorenu_udalost();">Vymaž všetky prvky</button>
+          <br><br>
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title">Výsledná udalosť</h3>
+            </div>
+            <div class="panel-body">
+              <center><output id="pop_udalosti">popis</output><br><output id="oz_udalosti">označenie = </output>{ <output id="udalosti"></output> }</center>
+            </div>
+          </div>
+          <center><div id="vypis_ud"></div></center>
+        </div>
+
+        <div id="modal_kombinatorika" style="display:none;">
+          <label class="control-label">Popis:</label><input class="form-control" type="text" id="popis_kombinatoriky" value="" size="30" onchange="zmen_popis_kom();"><br>
+          <select class="form-control" id="typ_kombinatoriky" onchange="zmen_kom();">
+              <option value="kombinacie">Kombinácie</option>
+              <option value="variacie">Variácie</option>
+              <option value="permutacie">Permutácie</option>
+          </select><br>
+          <select class="form-control" id="opakovanie_kombinatoriky" onchange="zmen_kom();">
+              <option value="opakovanie">s opakovaním</option>
+              <option value="neopakovanie">bez opakovania</option>
+          </select><br>
+          <label class="control-label">Počet prvkov:</label><input class="form-control" type="number" id="pocet_prvkov" min="1" max="100" maxlength="3" size="3" onchange="zmen_kom();"> 
+          <label class="control-label">Trieda:</label><input class="form-control" type="number" id="trieda_prvkov" min="1" max="100" maxlength="3" size="3" onchange="zmen_kom();"> 
+          <label class="control-label">Počet prvkov rovnakého druhu:</label><input class="form-control" type="number" id="prvok_kom" min="1" max="100" maxlength="3" size="3"><br>
+          <button class="btn btn-default" id="pridaj_k_btn" onclick="pridaj_k();">Pridať počet prvkov rovnakého druhu</button>
+          <button class="btn btn-default" id="pridaj_k_btn" onclick="vymaz_k();">Vymaž prvky rovnakého druhu</button><br><br>
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title">Výsledná kombinátorika</h3>
+            </div>
+            <div class="panel-body">
+              <center><output id="pop_kom">popis</output><br><output id="oz_kom">označenie</output>
+            </div>
+          </div>
+          <center><div id="vypis_kom"></div></center>
+        </div>
+
+        <div id="modal_cislo" style="display:none;">
+          <label class="control-label">Popis:</label><input class="form-control" type="text" id="popis_cisla" value="" size="10" maxlength="40" onchange="zmen_popis_num();"> 
+          <label class="control-label">Označenie:</label><input class="form-control" type="text" id="oznacenie_cisla" onchange="zmen_oznacenie_num();" value="" size="2" maxlength="5">
+          <label class="control-label">Vyber si číslo:</label><input class="form-control" type="number" id="cislo_num" min="1" max="100" maxlength="3" size="1" onchange="zmen_cislo();"><br> 
+          <br><br>
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title">Výsledné číslo</h3>
+            </div>
+            <div class="panel-body">
+              <center><output id="pop_cislo">popis</output><br><output id="oz_cislo">označenie = </output><output id="vypis_cisla"></output></center>
+            </div>
+          </div>
+          <center><div id="vypis_num"></div></center>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" onclick="pridaj_nieco();">Vytvor</button>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+<footer>
+  <div class="footer navbar-fixed-bottom">
+    <p>Vytvorila Zuzana Majeríková ako bakalársku prácu.</p>
+  </div>
+</footer>
+<script type="text/javascript" src="js/priklady.js"></script>
+</html>

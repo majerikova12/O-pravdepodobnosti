@@ -1,0 +1,222 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="readable.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
+    <meta name="google-signin-scope" content="profile email">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content="343413004275-mv8l0atmp7s1j4ufroq4clh37g08bjvd.apps.googleusercontent.com">
+    <script type="text/javascript" src="js/jquery-2.1.4.js"></script>
+    <script type="text/javascript" src="js/teoria.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <title>O pravdepodobnosti</title>
+</head>
+
+<body id="uvodne_body">
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" rel="home" href="#" title="Buy Sell Rent Everyting">
+        <img style="max-width:35px;" src="img/logo.png">
+      </a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a href="index.html"><font size="5"><strong>O pravdepodobnosti</strong></font></a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Teória<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="teoria.html">Pravdepodobnosť</a></li>
+            <li><a href="teoria_kom.html">Dodatok - kombinátorika</a></li>
+          </ul>
+        </li>
+        <li><a href="priklady.html">Príklady</a></li>
+        <li><a href="triedy.html">Triedy</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><div id="google_profil" style="display: none;"></div></li>
+        <li><div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark" style="display: inline;"></div></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div id="page14" class="col-lg-8 col-lg-offset-2" style="display:inline;">
+   <blockquote>
+    <p><strong>Dodatok - kombinatorika</strong><br>
+    <p>Uvažujeme o množine A = {a<sub>1</sub>, a<sub>2</sub>, ..., a<sub>n</sub>}.
+    <p>Permutáciou z <i>n</i> prvkov <i>a<sub>1</sub>, a<sub>2</sub>, ..., a<sub>n</sub></i> nazývame taký prvok množiny <i>A x A x ... x A</i> (t. j. usporiadanú <i>n</i>-ticu), ktorý obsahuje každý z prvkov <i>a<sub>1</sub>, a<sub>2</sub>, ..., a<sub>n</sub></i> práve raz.
+    <p><strong>Príklad D 1.1.</strong><br>
+    Všetky permutácie z prvkov 1, 2, 3 sú:
+  </blockquote>
+  <center>
+    <font size="4">
+      <p><img src="img/kom_obr1.png" height="200"><br><br>
+      <p>Zrejme prvý prvok môžeme vybrať tromi rôznymi spôsobmi, druhý prvok už len dvomi rôznymi spôsobmi, tretí prvok už len jedným spôsobom. Spolu máme:
+      <p><strong>3 * 2 * 1 = 3!</strong> možností.
+      <p>Teda všetkých permutácií z troch prvkov je <strong>3! = 6</strong>.
+    </font>
+  </center>
+  <blockquote>
+    <p><i>Všeobecne platí:</i>&nbsp;&nbsp;&nbsp; počet všetkých permutácií z <i>n</i> prvkov je <strong><i>P<sub>n</sub> = n!</i></strong>
+  </blockquote>
+  <div class="col-lg-12">
+     <br>
+     <a href="teoria.html" class="btn btn-primary" style="float:left; margin-bottom: 30px;">Späť na pravdepodobnosť</a>
+     <button class="btn btn-primary" style="float:right; margin-bottom: 30px;" onclick="change_page(14);">Pokračovať</button>
+  </div>
+</div>
+
+<div id="page15" class="col-lg-8 col-lg-offset-2" style="display:none;">
+   <blockquote>
+    <p>Variáciou <i>r</i>-tej triedy z <i>n</i> prvkov <i>a<sub>1</sub>, a<sub>2</sub>, ..., a<sub>n</sub> (r &le; n)</i> nazývame taký prvok množiny <i>A x A x ... x A</i> (t. j. usporiadanú <i>r</i>-ticu), ktorý obsahuje každý z prvkov <i>a<sub>1</sub>, a<sub>2</sub>, ..., a<sub>n</sub></i> najviac raz.
+    <p><strong>Príklad D 1.2.</strong><br>
+    Varácie druhej triedy zo štyroch prvkov <i>a<sub>1</sub>, a<sub>2</sub>, a<sub>3</sub>, a<sub>4</sub></i> sú:
+  </blockquote>
+  <center>
+    <font size="4">
+      <p><img src="img/kom_obr2.png" height="200"><br><br>
+      <p>resp.
+      <p><img src="img/kom_obr3.png" height="150"><br><br>
+      <p>Celkom máme <strong>4 * 3 = 12</strong> variácií.
+    </font>
+  </center>
+  <div class="col-lg-12">
+     <br>
+     <button class="btn btn-primary" style="float:left; margin-bottom: 30px;" onclick="change_page_back(15);">Späť</button>
+     <button class="btn btn-primary" style="float:right; margin-bottom: 30px;" onclick="change_page(15);">Pokračovať</button>
+  </div>
+</div>
+
+<div id="page16" class="col-lg-8 col-lg-offset-2" style="display:none;">
+   <blockquote>
+    <p><strong>Príklad D 1.3.</strong>
+    Nájdime počet všetkých variácií tretej triedy zo šiestich prvkov <i>a, b, c, d, e, f</i>.
+  </blockquote>
+  <center>
+    <font size="4">
+      <p>Zrejme prvý prvok môžeme vybrať šiestimi rôznymi spôsobmi, druhý prvok už len piatimi rôznymi spôsobmi a tretí prvok štyrmi rôznymi spôsobmi. Spolu máme <strong>6 * 5 * 4</strong> možností. <p>Teda počet všetkých variácii tretej priedy zo šiestich prvkov je:
+      <p><center><strong>6 * 5 * 4 = <sup>6!</sup>&frasl;<sub>3!</sub></strong></center>
+    </font>
+  </center>
+  <blockquote>
+    <p><i>Všeobecne platí:</i> &nbsp;&nbsp;&nbsp;počet <i>V(n, r)</i> všetkých variácií <i>r</i>-tej triedy z <i>n</i> prvkov je:<br>
+    <center><strong><i>V(n, r) = n * (n - 1) ... (n - r + 1) = <sup>n!</sup>&frasl;<sub>(n - r)!</sub></i></strong></center><br>
+    <p>Kombináciou <i>r</i>-tej triedy z <i>n</i> prvkov <i>a<sub>1</sub>, a<sub>2</sub>, ..., a<sub>n</sub>  (r &le; n)</i> nazývame ľubovoľnú <i>r</i>-prvkovú podmnožinou množiny <i>A = {a<sub>1</sub>, a<sub>2</sub>, ..., a<sub>n</sub>}</i>.
+    <p><strong>Príklad D 1.4.</strong><br>
+    Kombinácie tretej triedy zo štyroch prvkov <i>a, b, c, d</i> sú:
+  </blockquote>
+  <center>
+    <font size="4">
+      <p><center><i><strong>{a, b, c}, {a, b, d}, {a, c, d}, {b, c, d}.</strong></i></center>
+    </font>
+  </center>
+  <div class="col-lg-12">
+     <br>
+     <button class="btn btn-primary" style="float:left; margin-bottom: 30px;" onclick="change_page_back(16);">Späť</button>
+     <button class="btn btn-primary" style="float:right; margin-bottom: 30px;" onclick="change_page(16);">Pokračovať</button>  
+  </div>
+</div>
+
+<div id="page17" class="col-lg-8 col-lg-offset-2" style="display:none;">
+   <blockquote>
+    <p><strong>Príklad D 1.5.</strong>
+    Porovnajme počet <i>C(4, 3)</i> všetkých kombinácií tretej triedy zo štyroch prvkov <i>a, b, c, d</i> s počtom <i>V(4, 3)</i> všetkých variácií tretej triedy zo štyroch prvkov <i>a, b, c, d</i>.
+  </blockquote>
+  <center>
+    <font size="4">
+      <p><img src="img/kom_obr4.png" height="230"><br><br>
+      <p>Teda <i>V(4, 3) = C(4, 3) * 3!</i> a z toho <i>C(4, 3) = V(4, 3)/3!</i>
+    </font>
+  </center>
+  <blockquote>
+    <p><i>Všeobecne platí: &nbsp;&nbsp;&nbsp;<strong>V(n, r) = C(n, r) * r!</strong></i>
+    <p>a z toho nám vyplýva, že:<br>
+    <center><strong><i>C(n, r) = <sup>V(n, r)</sup>&frasl;<sub>r!</sub> = <sup>n!</sup>&frasl;<sub>r! * (n - r)!</sub> = </i>&nbsp;&nbsp;&nbsp;<img src="img/kombinacne_cislo.png" height="40"></strong></center><br>
+    kde <i>C(n, r)</i> je počet všetkých kombinácií <i>r</i>-tej triedy z <i>n</i> prvkov. Symbol &nbsp;&nbsp;&nbsp;<img src="img/kombinacne_cislo.png" height="30">&nbsp;&nbsp;&nbsp; sa nazýva kombinačné číslo.
+  </blockquote>
+  <div class="col-lg-12">
+     <br>
+     <button class="btn btn-primary" style="float:left; margin-bottom: 30px;" onclick="change_page_back(17);">Späť</button>
+     <button class="btn btn-primary" style="float:right; margin-bottom: 30px;" onclick="change_page(17);">Pokračovať</button>  
+  </div>
+</div>
+
+<div id="page18" class="col-lg-8 col-lg-offset-2" style="display:none;">
+   <blockquote>
+    <p>Variácia <i>r</i>-tej triedy s opakovaním z <i>n</i> prvkov <i>a<sub>1</sub>, a<sub>2</sub>, ..., a<sub>n</sub></i> (<i>r, n</i> sú ľubovoľné prirodzené čísla) je každý prvok množiny <i>A x A x ... x A</i>, kde <i>A = {a<sub>1</sub>, a<sub>2</sub>, ..., a<sub>n</sub>}.</i>
+    <p><strong>Príklad D 1.6.</strong>
+    Utvorme všetky variácie tretej triedy s opakovaním z dvoch prvkov <i>a, b</i>. Vieme, že sú to všetky prvky množiny <i>A x A x A</i>, kde <i>A = {a, b}.</i>
+  </blockquote>
+  <center>
+    <font size="4">
+      <p>Keďže pre karteziánsky súčin platí asociatívny zákon, je <i>A x A x A = (A x A) x A</i>. Prvky <i>A x A</i> sú:
+      <p><img src="img/kom_obr5.png" height="50"><br><br>
+      <p><i>A x A</i> má teda <strong>2 * 2 = 2<sup>2</sup></strong> prvkov. Prvky <i>(A x A) x A</i> sú:
+      <p><img src="img/kom_obr6.png" height="150"><br><br>
+      <p><i>(A x A) x A</i> má teda <strong>2<sup>2</sup> * 2 = 2<sup>3</sup></strong> prvkov. <br>Preto počet všetkých variácií tretej triedy s opakovaním z dvoch prvkov je <strong>2<sup>3</sup></strong>
+    </font>
+  </center>
+  <blockquote>
+    <p><i>Všeobecne platí:</i> &nbsp;&nbsp;&nbsp;Počet všetkých variácií <i>r</i>-tej triedy z <i>n</i> prvkov s opakovaním je <strong>n<sup>r</sup></strong>
+  </blockquote>
+  <div class="col-lg-12">
+     <br>
+     <button class="btn btn-primary" style="float:left; margin-bottom: 30px;" onclick="change_page_back(18);">Späť</button>
+     <button class="btn btn-primary" style="float:right; margin-bottom: 30px;" onclick="change_page(18);">Pokračovať</button>  
+  </div>
+</div>
+
+<div id="page19" class="col-lg-8 col-lg-offset-2" style="display:none;">
+   <blockquote>
+    <p><strong>Príklad D 1.7.</strong>
+    Ak chceme v Sazke obsiahnuť všetky možnosti, musíme utvoriť všetky variácie dvanástej triedy z troch prvkov 0, 1, 2. 
+  </blockquote>
+  <center>
+    <font size="4">
+      Teda ako tipy musíme vsadiť všetky prvky množiny <i>A x A x ... x A</i>, kde:
+      <p><center><i>A = {0, 1, 2}</i> a tých je <strong>3<sup>12</sup> = 531 441.</strong></center>
+    </font>
+  </center>
+  <blockquote>
+    <p>Často nás zaujíma počet tzv. permutácií s opakovaním z prvkov, z ktorých niektoré sú rovnaké.
+    <p><strong>Príklad D 1.8.</strong>
+    Majme 3 prvky, z ktorých 2 sú rovnaké: <i>a, a, b</i>. 
+  </blockquote>
+  <center>
+    <font size="4">
+      <p>Ak by sme rovnaké prvky očíslovali a utvorili všetky permutácie z prvkov <i>a<sub>1</sub>, a<sub>2</sub>, b</i>, dostali by sme:
+      <p><img src="img/kom_obr7.png" height="80"><br><br>
+      <p>teda celkom <strong>3!</strong> permutácií. Pretože však <i>a<sub>1</sub>, a<sub>2</sub></i> sú rovnaké, je ždy <strong>2!</strong> usporiadaní (tie, ktoré vzniknú len permutovaním prvkov <i>a<sub>1</sub>, a<sub>2</sub></i>) rovnakých. 
+      <p>Rôznych je teda len <strong>3!/2!</strong> permutácií. Sú to:
+      <p><center><i><strong>(a, a, b), (a, b, a), (b, a, a).</strong></i></center><br>
+      <p>Permutáciou s opakovaním z <i>n</i> prvkov, z ktorých <i>n<sub>1</sub></i> je rovných <i>a<sub>1</sub>, n<sub>2</sub></i> rovných <i>a<sub>2</sub>, ..., n<sub>k</sub></i> prvkov rovných <i>a<sub>k</sub> (n<sub>1</sub> + n<sub>2</sub> + ... + n<sub>k</sub> = n)</i> rozumieme taký prvok množiny <i>A x A x ... x A</i>, v ktorom je <i>n<sub>1</sub></i> súradníc rovných <i>a<sub>1</sub>, n<sub>2</sub></i> rovných <i>a<sub>2</sub>, ..., n<sub>k</sub>.</i>
+      <p>Počet všetkých takých permutácií s opakovaním je:
+      <p><center><strong><sup>n!</sup>&frasl;<sub>n<sub>1</sub>! * n<sub>2</sub>! * ... * n<sub>k</sub>!</sub></strong></center>
+    </font>
+  </center>
+  <div class="col-lg-12">
+     <br>
+     <button class="btn btn-primary" style="float:left; margin-bottom: 30px;" onclick="change_page_back(19);">Späť</button>
+     <button class="btn btn-primary disabled" style="float:right; margin-bottom: 30px;">Koniec</button> 
+  </div>
+</div>
+
+<script type="text/javascript" src="js/prihlasenie.js"></script>
+</body>
+<footer>
+  <div class="footer navbar-fixed-bottom">
+    <p>Vytvorila Zuzana Majeríková ako bakalársku prácu.</p>
+  </div>
+</footer>
+</html>

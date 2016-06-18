@@ -1,0 +1,136 @@
+{
+	"priklady": [{
+		"zadanie": "Aká je pravdepodobnosť, že pri hode dvoma hracími kockami nepadne číslo šesť?",
+		"udalosti": [
+			{"nazov": "padne ľubovolné číslo", "oznacenie": "A", "mnozina": [1, 2, 3, 4, 5, 6]},
+			{"nazov": "padne číslo jedna", "oznacenie": "D", "mnozina": [1]},
+			{"nazov": "padne číslo dva", "oznacenie": "E", "mnozina": [2]},
+			{"nazov": "padne číslo tri", "oznacenie": "F", "mnozina": [3]},
+			{"nazov": "padne číslo štyri", "oznacenie": "G", "mnozina": [4]},
+			{"nazov": "padne číslo päť", "oznacenie": "H", "mnozina": [5]},
+			{"nazov": "padne číslo šesť", "oznacenie": "I", "mnozina": [6]}
+		],
+		"kombinatorika": [],
+		"vysledok": {
+			"citatel": 25,
+			"menovatel": 36
+		}
+	}, {
+		"zadanie": "V triede je 15 žiakov (7 dievčat a 8 chlapcov). Na hodine si učiteľka vyberie troch náhodných žiakov na preskúšanie. Aká je pravdepodobnosť toho, že aspoň jedno bude dievča?",
+		"udalosti": [],
+		"kombinatorika": [
+			{"nazov": "počet výberov 3 žiakov z 15 žiakov", "typ": "kn", "n": 15, "k": [3]},
+			{"nazov": "počet výberov 3 žiakov z 8 žiakov", "typ": "kn", "n": 8, "k": [3]},
+			{"nazov": "počet výberov 3 žiakov z 7 žiakov", "typ": "kn", "n": 7, "k": [3]}
+		],
+		"vysledok": {
+			"citatel": 57,
+			"menovatel": 65
+		}
+	}, {
+		"zadanie": "Traja cestujúci nastupujú na vlak, ktorý ma šesť vozňov? Aká je pravdepodobnosť toho, že každý cestujúci natúpi do prvého alebo do druhého vozňa?",
+		"udalosti": [
+			{"nazov": "nastúpi do ľubovolného vozňa", "oznacenie": "A", "mnozina": [1, 2, 3, 4, 5, 6]},
+			{"nazov": "nastúpi do 1. vozňa", "oznacenie": "D", "mnozina": [1]},
+			{"nazov": "nastúpi do 2. vozňa", "oznacenie": "E", "mnozina": [2]},
+			{"nazov": "nastúpi do 3. vozňa", "oznacenie": "F", "mnozina": [3]},
+			{"nazov": "nastúpi do 4. vozňa", "oznacenie": "G", "mnozina": [4]},
+			{"nazov": "nastúpi do 5. vozňa", "oznacenie": "H", "mnozina": [5]},
+			{"nazov": "nastúpi do 6. vozňa", "oznacenie": "I", "mnozina": [6]}
+		],
+		"kombinatorika": [],
+		"vysledok": {
+			"citatel": 1,
+			"menovatel": 27
+		}
+	}, {
+		"zadanie": "Medzi 10 dobrých žiaroviek bolo omylom priemiešených 5 chybných. Náhodne vyberieme 3 z tých 15 žiaroviek. Aká je pravdepodobnosť toho, že všetky tri sú dobré?",
+		"udalosti": [],
+		"kombinatorika": [
+			{"nazov": "počet výberov 3 žiaroviek z 10 žiaroviek", "typ": "kn", "n": 15, "k": [3]},
+			{"nazov": "počet výberov 3 žiaroviek z 15 žiaroviek", "typ": "kn", "n": 10, "k": [3]},
+			{"nazov": "počet výberov 3 žiaroviek z 5 žiaroviek", "typ": "kn", "n": 5, "k": [3]}
+		],
+		"vysledok": {
+			"citatel": 24,
+			"menovatel": 91
+		}
+	}, {
+		"zadanie": "Aká je pravdepodobnosť toho, že pri trojnásobnom hode hracej kocky padne šesťka práve dvakrát?",
+		"udalosti": [
+			{"nazov": "padne ľubovolné číslo", "oznacenie": "A", "mnozina": [1, 2, 3, 4, 5, 6]},
+			{"nazov": "padne číslo jedna", "oznacenie": "D", "mnozina": [1]},
+			{"nazov": "padne číslo dva", "oznacenie": "E", "mnozina": [2]},
+			{"nazov": "padne číslo tri", "oznacenie": "F", "mnozina": [3]},
+			{"nazov": "padne číslo štyri", "oznacenie": "G", "mnozina": [4]},
+			{"nazov": "padne číslo päť", "oznacenie": "H", "mnozina": [5]},
+			{"nazov": "padne číslo šesť", "oznacenie": "I", "mnozina": [6]}
+		],
+		"kombinatorika": [
+			{"nazov": "počet výberov 2 hodov z 3 hodov", "typ": "kn", "n": 3, "k": [2]},
+			{"nazov": "počet výberov 1 hodu z 3 hodov", "typ": "kn", "n": 3, "k": [1]}
+		],
+		"vysledok": {
+			"citatel": 5,
+			"menovatel": 72
+		}
+	}, {
+		"zadanie": "V škatuli máme uložených osem bielych a šesť čiernych guličiek. Vyberieme štyri. Aká je pravdepodobnosť toho, že aspoň dve sú čierne?",
+		"udalosti": [],
+		"kombinatorika": [
+			{"nazov": "počet výberov 4 guličiek z 14 guličiek", "typ": "kn", "n": 14, "k": [4]},
+			{"nazov": "počet výberov 4 guličiek z 8 guličiek", "typ": "kn", "n": 8, "k": [4]},
+			{"nazov": "počet výberov 4 guličiek z 6 guličiek", "typ": "kn", "n": 6, "k": [4]},
+			{"nazov": "počet výberov 3 guličiek z 14 guličiek", "typ": "kn", "n": 14, "k": [3]},
+			{"nazov": "počet výberov 3 guličiek z 8 guličiek", "typ": "kn", "n": 8, "k": [3]},
+			{"nazov": "počet výberov 3 guličiek z 6 guličiek", "typ": "kn", "n": 6, "k": [3]},
+			{"nazov": "počet výberov 2 guličiek z 14 guličiek", "typ": "kn", "n": 14, "k": [2]},
+			{"nazov": "počet výberov 2 guličiek z 8 guličiek", "typ": "kn", "n": 8, "k": [2]},
+			{"nazov": "počet výberov 2 guličiek z 6 guličiek", "typ": "kn", "n": 6, "k": [2]},
+			{"nazov": "počet výberov 1 guličky z 14 guličiek", "typ": "kn", "n": 14, "k": [1]},
+			{"nazov": "počet výberov 1 guličky z 8 guličiek", "typ": "kn", "n": 8, "k": [1]},
+			{"nazov": "počet výberov 1 guličky z 6 guličiek", "typ": "kn", "n": 6, "k": [1]}
+		],
+		"vysledok": {
+			"citatel": 85,
+			"menovatel": 143
+		}
+	}, {
+		"zadanie": "Do výťahu v osemposchodovej budove nastupujú traja ľudia. Aká je pravdepodobnosť toho, že aspoň jeden človek vystúpi na piatom poschodí?",
+		"udalosti": [
+			{"nazov": "vystúpi na ľubovoľnom poschodí", "oznacenie": "A", "mnozina": [1, 2, 3, 4, 5, 6, 7, 8]},
+			{"nazov": "vystúpi na 1. poschodí", "oznacenie": "D", "mnozina": [1]},
+			{"nazov": "vystúpi na 2. poschodí", "oznacenie": "E", "mnozina": [2]},
+			{"nazov": "vystúpi na 3. poschodí", "oznacenie": "F", "mnozina": [3]},
+			{"nazov": "vystúpi na 4. poschodí", "oznacenie": "G", "mnozina": [4]},
+			{"nazov": "vystúpi na 5. poschodí", "oznacenie": "H", "mnozina": [5]},
+			{"nazov": "vystúpi na 6. poschodí", "oznacenie": "I", "mnozina": [6]},
+			{"nazov": "vystúpi na 7. poschodí", "oznacenie": "J", "mnozina": [7]},
+			{"nazov": "vystúpi na 8. poschodí", "oznacenie": "K", "mnozina": [8]}
+		],
+		"kombinatorika": [
+			{"nazov": "počet výberov 1 osoby z 3 ľudí", "typ": "kn", "n": 3, "k": [1]},
+			{"nazov": "počet výberov 2 osôb z 3 ľudí", "typ": "kn", "n": 3, "k": [2]},
+			{"nazov": "počet výberov 3 osôb z 3 ľudí", "typ": "kn", "n": 3, "k": [3]},
+			{"nazov": "počet rozmiestnení 8 poschodí medzi 3 ľudí (rovnaké poschodia sa môžu opakovať u viacerých ľudí)", "typ": "vo", "n": 8, "k": [3]},
+			{"nazov": "počet rozmiestnení 7 poschodí medzi 3 ľudí (rovnaké poschodia sa môžu opakovať u viacerých ľudí)", "typ": "vo", "n": 7, "k": [3]}
+		],
+		"vysledok": {
+			"citatel": 169,
+			"menovatel": 512
+		}
+	}, {
+		"zadanie": "Z ôsmich predajní mäsa v meste v štyroch predražujú tovar. Náhodne vyberieme na kontrolu 2 predajne mäsa. Aká je pravdepodobnosť toho, že v oboch predávajú bez predražovania?",
+		"udalosti": [],
+		"kombinatorika": [
+			{"nazov": "počet výberov 2 predajní zo 4 predajní", "typ": "kn", "n": 4, "k": [2]},
+			{"nazov": "počet výberov 2 predajní z 8 predajní", "typ": "kn", "n": 8, "k": [2]},
+			{"nazov": "počet výberov 1 predajne zo 4 predajní", "typ": "kn", "n": 4, "k": [1]},
+			{"nazov": "počet výberov 1 predajne zo 8 predajní", "typ": "kn", "n": 8, "k": [1]}
+		],
+		"vysledok": {
+			"citatel": 3,
+			"menovatel": 14
+		}
+	}]
+}
